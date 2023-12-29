@@ -1,0 +1,87 @@
+mutation CreateJobSummary($createJobSummaryInput: CreateJobSummaryInput!) {
+  createJobSummary(createJobSummaryInput: $createJobSummaryInput) {
+    caseName
+    caseNumber
+    confidentialValue
+    depositionDate
+    createdAt
+    deponentsFirstName
+    deponentsGender
+    deponentsLastName
+    deponentsTitle
+    
+    files {
+      createdAt
+      fileSize
+      id
+      key
+      metaType
+      title
+      type
+      typeId
+      updatedAt
+      url
+    }
+    id
+    isConfidential
+    isDeleted
+    prompt
+    status
+    updatedAt
+    users {
+      createdAt
+      email
+      emailVerified
+      id
+      status
+      updatedAt
+    }
+    volumeNumber
+  }
+}
+
+query FetchAllFiles($fetchAttachmentsInput: FetchAttachmentsInput!) {
+  fetchAllFiles(fetchAttachmentsInput: $fetchAttachmentsInput) {
+    attachments {
+      createdAt
+      description
+      id
+      fileSize
+      key
+      metaType
+      title
+      type
+      typeId
+      updatedAt
+      url
+    }
+    pagination {
+      totalCount
+      totalPages
+      page
+      limit
+    }
+  }
+}
+
+mutation Mutation($removeAttachmentInput: DeleteAttachmentInput!) {
+  removeFile(removeAttachmentInput: $removeAttachmentInput) {
+    attachments {
+      createdAt
+      description
+      fileSize
+      id
+      key
+      metaType
+      title
+      type
+      typeId
+      updatedAt
+      url
+    }
+  }
+}
+
+mutation GetSignedUrl($getSignedUrl: String!) {
+  getSignedUrl(getSignedUrl: $getSignedUrl)
+}

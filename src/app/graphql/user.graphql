@@ -1,0 +1,108 @@
+mutation updateUserPassword($updateUserPasswordInput: UpdateUserPasswordInput!) {
+  updateUserPassword(updateUserPasswordInput: $updateUserPasswordInput) {
+    createdAt
+    email
+    emailVerified
+    fullName
+    id
+    status
+    updatedAt
+
+    roles {
+      createdAt
+      id
+      role
+      updatedAt
+    }
+  }
+}
+
+mutation UpdateUser($userId: String!, $updateUserInput: UpdateUserInput!) {
+  updateUser(userId: $userId, updateUserInput: $updateUserInput) {
+    createdAt
+    email
+    emailVerified
+    fullName
+    id
+    status
+    updatedAt
+
+    roles {
+      createdAt
+      id
+      role
+      updatedAt
+    }
+  }
+}
+
+mutation UpdateUserStatusFromAdmin($status: Float!, $userId: String!) {
+  updateUserStatusFromAdmin(status: $status, userId: $userId) {
+    createdAt
+    email
+    emailVerified
+    fullName
+    id
+    roles {
+      createdAt
+      id
+      role
+      updatedAt
+    }
+    status
+    updatedAt
+  }
+}
+
+mutation RemoveUser($removeUserId: String!) {
+  removeUser(id: $removeUserId)
+}
+
+query FetchAllUsers($fetchUsersInput: FetchUsersInput!) {
+  fetchAllUsers(fetchUsersInput: $fetchUsersInput) {
+    pagination {
+      limit
+      page
+      totalCount
+      totalPages
+    }
+    users {
+      email
+      emailVerified
+      fullName
+      id
+      status
+      createdAt
+      updatedAt
+
+      roles {
+        id
+        role
+        createdAt
+        updatedAt
+      }
+    }
+  }
+}
+
+mutation VerifyPasswordTokenAndSetPassword($resetPasswordInput: ResetPasswordInput!) {
+  verifyPasswordTokenAndSetPassword(resetPasswordInput: $resetPasswordInput)
+}
+
+mutation UpdateUserRoleFromAdmin($role: String!, $userId: String!) {
+  updateUserRoleFromAdmin(role: $role, userId: $userId) {
+    createdAt
+    email
+    emailVerified
+    fullName
+    id
+    roles {
+      createdAt
+      id
+      role
+      updatedAt
+    }
+    status
+    updatedAt
+  }
+}

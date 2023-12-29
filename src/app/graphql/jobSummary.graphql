@@ -1,0 +1,162 @@
+query JobSummary($jobSummaryId: String!) {
+  jobSummary(id: $jobSummaryId) {
+    jobSummary {
+      caseName
+      caseNumber
+      confidentialValue
+      createdAt
+      deponentsFirstName
+      deponentsGender
+      deponentsLastName
+      deponentsTitle
+      depositionDate
+      templateTypes
+      failedReason
+      
+      files {
+        fileSize
+        id
+        key
+        metaType
+        title
+        type
+        typeId
+        url
+        createdAt
+        updatedAt
+      }
+      id
+      isConfidential
+      isDeleted
+      prompt
+      status
+      updatedAt
+      users {
+        email
+        emailVerified
+        fullName
+        id
+        profilePicture {
+          createdAt
+          fileSize
+          id
+          key
+          metaType
+          type
+          typeId
+          updatedAt
+          url
+        }
+        roles {
+          createdAt
+          id
+          role
+          updatedAt
+        }
+        status
+        updatedAt
+        createdAt
+      }
+      volumeNumber
+    }
+  }
+}
+
+mutation UpdateJobSummary($updateJobSummaryInput: UpdateJobSummaryInput!) {
+  updateJobSummary(updateJobSummaryInput: $updateJobSummaryInput) {
+    prompt
+  }
+}
+
+query JobSummaries($fetchJobSummariesInput: FetchJobSummariesInput!) {
+  jobSummaries(fetchJobSummariesInput: $fetchJobSummariesInput) {
+    jobSummaries {
+      caseName
+      caseNumber
+      deponentsFirstName
+      deponentsGender
+      deponentsLastName
+       deponentsTitle
+      id
+      templateTypes
+      createdAt
+      depositionDate
+      status
+
+      files {
+        fileSize
+        id
+        key
+        metaType
+        type
+        typeId
+        url
+        title
+        createdAt
+        updatedAt
+      }
+
+      isConfidential
+      prompt
+      volumeNumber
+      updatedAt
+      
+      users {
+        createdAt
+        email
+        emailVerified
+        fullName
+        id
+        profilePicture {
+          createdAt
+          description
+          fileSize
+          id
+          key
+          metaType
+          title
+          type
+          typeId
+          updatedAt
+          url
+        }
+        roles {
+          createdAt
+          id
+          role
+          updatedAt
+        }
+        status
+        createdAt
+        updatedAt
+      }
+    }
+
+    pagination {
+      limit
+      page
+      totalCount
+      totalPages
+    }
+  }
+}
+
+mutation RemoveJobSummary($removeJobSummaryId: String!) {
+  removeJobSummary(id: $removeJobSummaryId)
+}
+
+query GenerateSummary($typeId: String!) {
+  generateSummary(typeId: $typeId) {
+    createdAt
+    description
+    fileSize
+    id
+    key
+    metaType
+    title
+    type
+    typeId
+    updatedAt
+    url
+  }
+}

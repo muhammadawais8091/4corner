@@ -1,0 +1,9 @@
+overwrite: true
+schema: '${VITE_REACT_APP_API_BASE_URL}/graphql'
+documents: './src/app/graphql/**.graphql'
+generates:
+  src/generated/index.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'

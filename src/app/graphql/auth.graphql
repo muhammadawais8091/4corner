@@ -1,0 +1,110 @@
+mutation Login($loginUser: LoginUserInput!) {
+  login(loginUser: $loginUser) {
+    accessToken
+
+    roles {
+      id
+      role
+      createdAt
+      updatedAt
+    }
+  }
+}
+
+mutation forgotPassword($forgotPasswordInput: ForgotPasswordInput!) {
+  forgotPassword(forgotPasswordInput: $forgotPasswordInput)
+}
+
+mutation VerifyResetPasswordToken($token: String!) {
+  verifyResetPasswordToken(token: $token)
+}
+
+mutation VerifyPasswordTokenAndSetPassword($resetPasswordInput: ResetPasswordInput!) {
+  verifyPasswordTokenAndSetPassword(resetPasswordInput: $resetPasswordInput)
+}
+
+mutation Register($registerUserInput: RegisterUserInput!) {
+  register(registerUserInput: $registerUserInput) {
+    email
+    emailVerified
+    fullName
+    id
+    status
+    createdAt
+    updatedAt
+
+    roles {
+      createdAt
+      id
+      role
+      updatedAt
+    }
+  }
+}
+
+mutation UserRegistrationWithInvitation($registerUserInput: RegisterUserWithInvitationInput!) {
+  userRegistrationWithInvitation(registerUserInput: $registerUserInput) {
+    createdAt
+    email
+    emailVerified
+    fullName
+    id
+    roles {
+      createdAt
+      id
+      role
+      updatedAt
+    }
+    status
+    updatedAt
+  }
+}
+
+mutation InviteUser($inviteUserInput: InviteUserInput!) {
+  inviteUser(inviteUserInput: $inviteUserInput)
+}
+
+mutation VerifyInvitationEmailToken($token: String!) {
+  verifyInvitationEmailToken(token: $token) {
+    email
+    isTokenValid
+  }
+}
+
+mutation VerifyEmailToken($token: String!) {
+  verifyEmailToken(token: $token) {
+    email
+    roleType
+  }
+}
+
+query GetUser {
+  me {
+    id
+    createdAt
+    email
+    emailVerified
+    fullName
+    status
+    updatedAt
+
+    profilePicture {
+      createdAt
+      fileSize
+      id
+      key
+      metaType
+      type
+      typeId
+      updatedAt
+      url
+    }
+    
+    roles {
+      createdAt
+      id
+      role
+      updatedAt
+    }
+  }
+}

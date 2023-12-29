@@ -1,0 +1,1 @@
+export const PRIMARY_FONT = "'Inter', sans-serif";
